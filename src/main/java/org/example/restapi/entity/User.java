@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -33,10 +34,12 @@ public class User {
 
     private LocalDateTime createdAt;
 
+    @Builder
     public User(String username, String password, String email, String name) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.name = name;
+        this.createdAt = LocalDateTime.now();
     }
 }
